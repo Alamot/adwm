@@ -17,6 +17,8 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * XPM icons/pictures support
 * Zoomswap patch
 
+![Busy](/29Aug2016_00:31:02_1280x1024.jpg "Busy")
+
 ## Status bar indicators:
 * Keyboard layout (with country flags)
 * Load average
@@ -24,10 +26,9 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * Available memory
 * Wifi connection status, signal and txrate using the nl80211 interface (with graphic representation)
 
-![Busy](/29Aug2016_00:31:02_1280x1024.jpg "Busy")
-
-Wifi Indicator
 ![Wifi indicator](/wifi.png "Wifi indicator")
+Wifi Indicator
+====================================================
 
 Requirements
 ------------
