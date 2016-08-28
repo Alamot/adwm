@@ -22,7 +22,7 @@ Status bar indicators for:
 * Load average
 * CPU temperature
 * Available memory
-* Wifi connection status, signal and txrate (With graph)
+* Wifi connection status, signal and txrate using the nl80211 interface (with graphic representation)
 
 
 Requirements
