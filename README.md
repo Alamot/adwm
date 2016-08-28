@@ -2,29 +2,32 @@ Alamot's DWM - Dynamic Window Manager
 ======================================
 This is my version of dwm. DWM is an extremely fast, small, and dynamic window manager for X.
 
-***************************************************
-* Extra features included in Alamot's DWM
-***************************************************
-* Alpha patch
-* Change keyboard layout using the mouse
-* ClkStatusText Left/Middle/Right 
+## Extra features included in Alamot's DWM:
+* Alpha patch (aka transparency)
+* Better key assignment (e.g. tags on numpad keys)
+* Change keyboard layout using the mouse buttons
 * Pertag patch
 * Runorraise patch
-* Querypoiner focus
+* Query mouse pointer focus
 * Status2d patch
 * Systray patch
+* Three different clickable ClkStatusText areas (Left/Middle/Right)
 * Viewontag patch
-* XPM pictures support
+* Xft support
+* XPM icons/pictures support
 * Zoomswap patch
-*************************************************** 
-* Status bar indicators for:
-***************************************************
-* Keyboard layout
+
+## Status bar indicators:
+* Keyboard layout (with country flags)
 * Load average
 * CPU temperature
 * Available memory
-* Wifi connection status, signal and txrate
-***************************************************
+* Wifi connection status, signal and txrate using the nl80211 interface (with graphic representation)
+
+![Busy](/29Aug2016_00:31:02_1280x1024.jpg "Busy")
+
+Wifi Indicator
+![Wifi indicator](/wifi.png "Wifi indicator")
 
 Requirements
 ------------
@@ -32,7 +35,7 @@ glibc
 libx11
 libxft
 libfontconfig
-libxpm         (for xpm pictures)
+libxpm         (for xpm icons/pictures)
 libnl-genl-3.0 (for nl80211 wifi indicator)
 
 Installation
