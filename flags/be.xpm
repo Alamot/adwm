@@ -1,0 +1,32 @@
+/* XPM */
+static char *be[] = {
+/* columns rows colors chars-per-pixel */
+"31 18 8 1 ",
+"  c black",
+". c #9C8800",
+"X c #FFE600",
+"o c #FFDE00",
+"O c #FFDF00",
+"+ c #FBA400",
+"@ c #EE0000",
+"# c white",
+/* pixels */
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@",
+"          .XoooooooO+@@@@@@@@@@"
+};

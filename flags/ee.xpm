@@ -1,0 +1,31 @@
+/* XPM */
+static char *ee[] = {
+/* columns rows colors chars-per-pixel */
+"31 18 7 1 ",
+"  c #3A75C4",
+". c #3A75C5",
+"X c #010204",
+"o c black",
+"O c gray4",
+"+ c gray93",
+"@ c white",
+/* pixels */
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"...............................",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"ooooooooooooooooooooooooooooooo",
+"ooooooooooooooooooooooooooooooo",
+"ooooooooooooooooooooooooooooooo",
+"ooooooooooooooooooooooooooooooo",
+"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+"+++++++++++++++++++++++++++++++",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+};

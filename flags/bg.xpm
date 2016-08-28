@@ -1,0 +1,32 @@
+/* XPM */
+static char *bg[] = {
+/* columns rows colors chars-per-pixel */
+"31 18 8 1 ",
+"  c white",
+". c #059872",
+"X c #00956D",
+"o c #00966E",
+"O c #08926B",
+"+ c #C62E19",
+"@ c #D82511",
+"# c #D62612",
+/* pixels */
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"...............................",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"ooooooooooooooooooooooooooooooo",
+"ooooooooooooooooooooooooooooooo",
+"ooooooooooooooooooooooooooooooo",
+"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+"+++++++++++++++++++++++++++++++",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+"###############################",
+"###############################",
+"###############################",
+"###############################"
+};

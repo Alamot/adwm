@@ -1,0 +1,32 @@
+/* XPM */
+static char *bw[] = {
+/* columns rows colors chars-per-pixel */
+"31 18 8 1 ",
+"  c SkyBlue",
+". c #9BD5ED",
+"X c #979493",
+"o c black",
+"O c #8E8C8B",
+"+ c #A9DEF4",
+"@ c #85CDEB",
+"# c white",
+/* pixels */
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"...............................",
+"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"ooooooooooooooooooooooooooooooo",
+"ooooooooooooooooooooooooooooooo",
+"OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+"+++++++++++++++++++++++++++++++",
+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+"                               ",
+"                               ",
+"                               ",
+"                               ",
+"                               "
+};
