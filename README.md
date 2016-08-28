@@ -31,12 +31,12 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 
 Requirements
 ------------
-glibc
-libx11
-libxft
-libfontconfig
-libxpm         (for xpm icons/pictures)
-libnl-genl-3.0 (for nl80211 wifi indicator)
+* glibc
+* libx11
+* libxft
+* libfontconfig
+* libxpm         (for xpm icons/pictures)
+* libnl-genl-3.0 (for nl80211 wifi indicator)
 
 Installation
 ------------
