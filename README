@@ -2,9 +2,7 @@ Alamot's DWM - Dynamic Window Manager
 ======================================
 This is my version of dwm. DWM is an extremely fast, small, and dynamic window manager for X.
 
-**********************************************************
-* Extra features included in Alamot's DWM
-**********************************************************
+Extra features included in Alamot's DWM
 * Alpha patch (aka transparency)
 * Better key assignment (e.g. tags on numpad keys)
 * Change keyboard layout using the mouse buttons
@@ -18,15 +16,14 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * Xft support
 * XPM icons/pictures support
 * Zoomswap patch
-********************************************************** 
-* Status bar indicators for:
-**********************************************************
+
+ Status bar indicators for:
 * Keyboard layout (with country flags)
 * Load average
 * CPU temperature
 * Available memory
 * Wifi connection status, signal and txrate (With graph)
-**********************************************************
+
 
 Requirements
 ------------
