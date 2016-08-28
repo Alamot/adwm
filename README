@@ -6,7 +6,7 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * Extra features included in Alamot's DWM
 **********************************************************
 * Alpha patch (aka transparency)
-* Better key assignment (tags on numpad keys)
+* Better key assignment (e.g. tags on numpad keys)
 * Change keyboard layout using the mouse buttons
 * Pertag patch
 * Runorraise patch
