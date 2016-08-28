@@ -27,7 +27,6 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * Wifi connection status, signal and txrate using the nl80211 interface (with graphic representation)
 
 ![Wifi indicator](/wifi.png "Wifi indicator")
-Wifi Indicator
 ====================================================
 
 Requirements
