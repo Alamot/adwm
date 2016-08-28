@@ -16,7 +16,7 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * Three different clickable ClkStatusText areas (Left/Middle/Right)
 * Viewontag patch
 * Xft support
-* XPM pictures support
+* XPM icons/pictures support
 * Zoomswap patch
 ********************************************************** 
 * Status bar indicators for:
