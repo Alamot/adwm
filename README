@@ -13,7 +13,7 @@ This is my version of dwm. DWM is an extremely fast, small, and dynamic window m
 * Query mouse pointer focus
 * Status2d patch
 * Systray patch
-* Three different ClkStatusText areas (Left/Middle/Right)
+* Three different clickable ClkStatusText areas (Left/Middle/Right)
 * Viewontag patch
 * Xft support
 * XPM pictures support
