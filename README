@@ -24,6 +24,9 @@ Status bar indicators for:
 * Available memory
 * Wifi connection status, signal and txrate using the nl80211 interface (with graphic representation)
 
+![Alt text](28Aug2016_20:12:42_1280x1024.jpg?raw=true "Clean")
+![Alt text](29Aug2016_00:31:02_1280x1024.jpg?raw=true "Busy")
+![Alt text](wifi.png?raw=true "Wifi indicator")
 
 Requirements
 ------------
