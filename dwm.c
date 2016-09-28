@@ -45,6 +45,7 @@
  * ************************************************/
  
 #include <errno.h>
+#include <limits.h>
 #include <locale.h>
 #include <stdarg.h>
 #include <signal.h>
@@ -86,6 +87,7 @@
 #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
 #define TEXTW(X)                (drw_text(drw, 0, 0, 0, 0, (X), 0) + drw->fonts[0]->h)
 #define OPAQUE                  0xffU
+#define ALTER_OPACITY_STEP      0xCCCCCCD
 #define SYSTEM_TRAY_REQUEST_DOCK    0
 #define _NET_SYSTEM_TRAY_ORIENTATION_HORZ 0
 
@@ -204,6 +206,7 @@ typedef struct {
 } VisualInfo;
 
 /* function declarations */
+static void alteropacity(const Arg *arg);
 static void applyrules(Client *c);
 static Bool applysizehints(Client *c, int *x, int *y, int *w, int *h, Bool interact);
 static void arrange(Monitor *m);
@@ -1349,6 +1352,23 @@ keypress(XEvent *e) {
 		&& CLEANMASK(keys[i].mod) == CLEANMASK(ev->state)
 		&& keys[i].func)
 			keys[i].func(&(keys[i].arg));
+}
+
+static void alteropacity(const Arg *arg) {
+  if(!selmon->sel) return;
+  int format;
+  Atom actual;
+  unsigned char *data;
+  unsigned long n, left;
+  unsigned int opacity;
+  XGetWindowProperty(dpy, selmon->sel->win, netatom[NetWMWindowOpacity], 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, (unsigned char **) &data);
+  if (data != None) { memcpy (&opacity, data, sizeof (unsigned int)); XFree(( void *) data ); }  
+  fprintf(stderr, "%u\n", opacity);
+  if (!opacity) { opacity = UINT_MAX; }
+  if ((arg->i < 0) && (opacity <= ALTER_OPACITY_STEP)) { opacity = ALTER_OPACITY_STEP; }
+  else if ((arg->i > 0) && (opacity > UINT_MAX - ALTER_OPACITY_STEP)) { opacity = UINT_MAX; }
+  else { opacity += (arg->i)*ALTER_OPACITY_STEP; }
+  XChangeProperty(dpy, selmon->sel->win, netatom[NetWMWindowOpacity], XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &opacity, 1L);
 }
 
 void

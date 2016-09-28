@@ -10,7 +10,7 @@ static const char statusfont[]      = "-*-fixed-*-*-*-*-20-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
+static const char selbordercolor[]  = "#999900";
 static const char selbgcolor[]      = "#005577";
 static const char selfgcolor[]      = "#eeeeee";
 static unsigned int baralpha        = 0x99U;
@@ -39,6 +39,7 @@ static const Rule rules[] = {
 	{ "Geany",                NULL,       NULL,         1 << 2,     False,        -1 },
 	{ "Audacious",            NULL,       NULL,         1 << 8,     True,         -1 },
 	{ "Stjerm",               NULL,       NULL,         0,          True,         -1 },
+	{ "Shutdown-manager-transparent",     	  NULL,       NULL,         0,          True,         -1 },
 };
 
 /* layout(s) */
@@ -68,17 +69,18 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *hicmd[]  = { "hardinfo", NULL, NULL, NULL, "Hardinfo"};
 static const char *taskcmd[]  = { "gnome-system-monitor", NULL, NULL, NULL, "Gnome-system-monitor"};
-static const char *concmd[]  = { "con", NULL };
+static const char *concmd[]  = { "sudo", "connmanctl", "scan", "wifi", NULL};
 static const char *cmstcmd[]  = { "sudo", "cmst", NULL, NULL, "CMST - Connman System Tray"};
 static const char *calcmd[]  = { "google-chrome-stable", "https://calendar.google.com/calendar/render#main_7%7Cmonth", NULL, NULL, "google-chrome"};
 static const char *dmenucmd[]   = { "dmenu_run", "-b", "-fn", "Sans:size=12", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "lwt", NULL };
-static const char *htopcmd[]  = { "lwt", "-c", "htop", NULL};
-static const char *glancescmd[]  = { "lwt", "-c", "glances", NULL};
+static const char *termcmd[]  = { "lilyterm", NULL };
+static const char *htopcmd[]  = { "lilyterm", "-e", "htop", NULL};
+static const char *glancescmd[]  = { "lilyterm", "-e", "glances", NULL};
 static const char *editcmd[]  = { "geany",  NULL, NULL, NULL, "Geany"};
 static const char *wwwcmd[]  = { "google-chrome-stable", NULL, NULL, NULL, "google-chrome"};
 static const char *spacefmcmd[] = { "spacefm",  NULL, NULL, NULL, "Spacefm"};
-static const char *slockcmd[] = { "slock",  NULL, };
+static const char *musiccmd[] = { "audacious",  NULL, NULL, NULL, "Audacious"};
+static const char *systemcmd[] = { "shutdown-manager-transparent",  NULL, NULL, NULL, "Shutdown-manager-transparent"};
 static const char *scrotcmd[]  = { "scrot", "-q 90", "/home/alamot/Pictures/Screenshots/%d%b%Y_%H:%M:%S_$wx$h.jpg", NULL };
 static const char *scrotscmd[]  = { "scrot", "-q 90", "-s", "/home/alamot/Pictures/Screenshots/%d%b%Y_%H:%M:%S_$wx$h.jpg", NULL };
 static const char *scrotspngcmd[]  = { "scrot", "-q 75", "-s", "/home/alamot/Pictures/Screenshots/%d%b%Y_%H:%M:%S_$wx$h.png", NULL };
@@ -108,14 +110,24 @@ static Key keys[] = {
 	{ KeyPress,   MODKEY,           XK_c,            killclient,     {0} },
 	{ KeyPress,   MODKEY,           XK_l,            setlayout,      {0} },
 	{ KeyPress,   MODKEY,           XK_f,            togglefloating, {0} },
-	{ KeyPress,   MODKEY,           XK_comma,        focusmon,       {.i = -1     } },
+        { KeyPress,   MODKEY,           XK_minus,        alteropacity,   {.i = -1     } },
+	{ KeyPress,   MODKEY,           XK_equal,        alteropacity,   {.i = +1     } },
+        { KeyPress,   MODKEY,           XK_comma,        focusmon,       {.i = -1     } },
 	{ KeyPress,   MODKEY,           XK_period,       focusmon,       {.i = +1     } },
 	{ KeyPress,   MODKEY|ShiftMask, XK_comma,        tagmon,         {.i = -1     } },
 	{ KeyPress,   MODKEY|ShiftMask, XK_period,       tagmon,         {.i = +1     } },
-	{ KeyPress,   MODKEY,           XK_Escape,       quit,           {.ui = 0 } },
+	{ KeyPress,   MODKEY,           XK_F1,           spawnorraise,   {.v = wwwcmd } },
+	{ KeyPress,   MODKEY,           XK_F2,           spawnorraise,   {.v = spacefmcmd } },
+	{ KeyPress,   MODKEY,           XK_F3,           spawnorraise,   {.v = editcmd } },
+	{ KeyPress,   MODKEY,           XK_F4,           spawnorraise,   {.v = cmstcmd } },
+	{ KeyPress,   MODKEY,           XK_F5,           spawn,          {.v = concmd  } },
+	{ KeyPress,   MODKEY,           XK_F9,           spawnorraise,   {.v = musiccmd } },
+	{ KeyPress,   MODKEY,           XK_F10,          spawn,          {.v = htopcmd } },
+	{ KeyPress,   MODKEY,           XK_Escape,       spawnorraise,   {.v = systemcmd  } },
+	{ KeyPress,   MODKEY,           XK_r,            quit,           {.ui = 0 } },
         { KeyPress,   MODKEY|ControlMask,XK_Escape,      quit,           {.ui = 1 } },
 	{ KeyPress,   MODKEY,           XK_KP_Insert,    view,           {.ui = ~0 } },
-	{ KeyPress,   MODKEY|ShiftMask, XK_KP_Insert,    tag,            {.ui = ~0    } },
+	{ KeyPress,   0|ShiftMask,      XK_KP_Insert,    tag,            {.ui = ~0    } },
    /* TAGKEYS(                          XK_F1,                      0)
 	TAGKEYS(                        XK_F2,                      1)
 	TAGKEYS(                        XK_F3,                      2)
@@ -159,8 +171,8 @@ static Button buttons[] = {
         { ClkStatusTextMiddle,  0,              Button2,        spawn,        {.v = glancescmd } },
         { ClkStatusTextMiddle,  0,              Button3,        spawnorraise, {.v = hicmd   } },
         { ClkStatusTextRight,   0,              Button1,        spawnorraise, {.v = cmstcmd } },
-        { ClkStatusTextRight,   0,              Button3,        spawn,        {.v = concmd  } },
-        { ClkStatusTextRight,   0,              Button2,        spawn,        {.v = slockcmd  } },
+        { ClkStatusTextRight,   0,              Button2,        spawn,        {.v = concmd  } },
+        { ClkStatusTextRight,   0,              Button3,        spawnorraise, {.v = systemcmd  } },
         
         
 	

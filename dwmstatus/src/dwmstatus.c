@@ -114,7 +114,7 @@ static void strupr(char* p) { for ( ; *p; ++p) *p = toupper(*p); }
 
 static void strcpy_uptodelim(char* dest, const char* source, const char delimeters[]) {
     int n = strlen(delimeters);
-    while (*dest++ = *source++) 
+    while ((*dest++ = *source++)) 
       for (int i = 0; i < n; i++) 
         if (*source == delimeters[i]) { *dest = '\0'; return; }
 }
@@ -291,6 +291,7 @@ static int checkInternet() {
 }
 
 static void getWifiStatus() {
+  int internet = -100;
   char bgcolor[20], fgcolor[20]; 
   /* invalidate variables */
   wifi_index = -1;
@@ -319,7 +320,7 @@ static void getWifiStatus() {
   while (result2 > 0) { nl_recvmsgs(nlsocket, cb2); }
   nlmsg_free(msg2);
   //printf("msg2 exit\n");
-  int internet = checkInternet();
+  if (wifi_signal > 0) { internet = checkInternet(); }
   if (internet < -1)     { strcpy(bgcolor,    DARKRED); strcpy(fgcolor,    RED); } //No Internet connection
   else if (internet < 0) { strcpy(bgcolor, DARKYELLOW); strcpy(fgcolor, YELLOW); } //No DNS lookup 
   else                   { strcpy(bgcolor,  DARKGREEN); strcpy(fgcolor,  GREEN); } //OK
